@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AppController">
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <center>
+            <TabPane fx:id="tabPane" prefHeight="328.0" prefWidth="441.0" rotateGraphic="true" tabClosingPolicy="ALL_TABS" BorderPane.alignment="CENTER">
+               <effect>
+                  <Blend />
+               </effect></TabPane>
+         </center>
+         <bottom>
+            <ButtonBar fx:id="buttonBar">
+              <buttons>
+                  <Label fx:id="infoLabel" cache="true" centerShape="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="1000.0" textFill="BLUE" wrapText="true" />
+                <Button fx:id="buttonAll" maxWidth="10.0" mnemonicParsing="false" text="All">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pic/upload-7.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="buttonPrev" maxWidth="10.0" mnemonicParsing="false" text="Prev">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pic/back-8.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="buttonNext" maxWidth="10.0" mnemonicParsing="false" text="Next">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pic/next-11.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+              </buttons>
+            </ButtonBar>
+         </bottom>
+      </BorderPane>
+   </center>
+   <top>
+      <BorderPane prefHeight="51.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <bottom>
+            <HBox maxWidth="1.7976931348623157E308" prefHeight="25.0" BorderPane.alignment="TOP_LEFT">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="87.0" text="File search text:" />
+                  <TextField fx:id="textSearch" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="25.0" promptText="Search..." HBox.hgrow="SOMETIMES" />
+                  <Button fx:id="buttonOk" mnemonicParsing="false" onAction="#onClickOk" prefHeight="25.0" prefWidth="25.0">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pic/checked-2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </bottom>
+         <center>
+            <HBox maxWidth="1.7976931348623157E308" prefHeight="25.0" BorderPane.alignment="TOP_LEFT">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="75.0" text="Search for *." HBox.hgrow="ALWAYS">
+                     <tooltip>
+                        <Tooltip text="Enter the file extensions &quot;,&quot;" wrapText="true" />
+                     </tooltip></Label>
+                  <TextField fx:id="textExtension" prefHeight="25.0" prefWidth="40.0" text="log" />
+                  <Label prefHeight="25.0" prefWidth="40.0" text="files in" />
+                  <Button fx:id="buttonChooser" mnemonicParsing="false" onAction="#onClickChooser" prefHeight="25.0" prefWidth="25.0">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pic/menu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <TextField fx:id="textFilePath" maxWidth="1.7976931348623157E308" prefHeight="25.0" promptText="Set file path..." HBox.hgrow="SOMETIMES">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+         </center>
+      </BorderPane>
+   </top>
+   <left>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <center>
+            <TreeView fx:id="fileTree" BorderPane.alignment="CENTER" />
+         </center>
+         <bottom>
+            <HBox prefHeight="25.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ProgressIndicator fx:id="loadingProgressIndicator" prefHeight="25.0" prefWidth="25.0" visible="false" />
+                  <Label fx:id="loadingInfoLabel" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="175.0" textFill="BLUE" HBox.hgrow="SOMETIMES">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="3.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </left>
+</BorderPane>
